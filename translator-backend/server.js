@@ -20,9 +20,22 @@ app.post("/translate", async (req, res) => {
   }
 
   try {
-    const response = await fetch(
-      `https://lingva.ml/api/v1/en/${targetLang}/${encodeURIComponent(text)}`
-    );
+    const response = await fetch("https://libretranslate.de/translate", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    q: text,
+    source: "en",
+    target: targetLang,
+    format: "text"
+  })
+});
+
+const data = await response.json();
+const translatedText = data.translatedText;
+
 
     const data = await response.json();
     const translatedText = data.translation;
