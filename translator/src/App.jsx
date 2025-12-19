@@ -7,7 +7,7 @@ function App() {
   const [targetLang, setTargetLang] = useState("hi");
 
   function translateText() {
-  fetch("https://translator-backend.onrender.com/translate", {
+  fetch("https://translator-backend-0ozs.onrender.com/translate", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
